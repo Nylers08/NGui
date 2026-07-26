@@ -4,3 +4,8 @@ version: '${version}'
 main: io.neris.NGui.NGui
 api-version: '26.2'
 load: POSTWORLD
+
+commands:
+  menu:
+    description: Команда под меню
+    usage: /menu
