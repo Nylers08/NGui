@@ -1,5 +1,6 @@
-package io.neris.NGui.core.GuiElement.view;
+package io.neris.NGui.core.guiElement.view;
 
+import io.neris.NGui.core.guiElement.controller.GuiElementRenderContext;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 
@@ -7,8 +8,9 @@ import java.util.UUID;
 
 public interface GuiElement {
 
-    UUID uuid();
     void click(InventoryClickEvent event);
-    ItemStack render();
+    void render(GuiElementRenderContext context);
+    UUID uuid();
+    ItemStack getItem();
 
 }
