@@ -2,7 +2,6 @@ package io.neris.NGui;
 
 import io.neris.NGui.core.command.MyCommand;
 import io.neris.NGui.core.services.ServiceController;
-import io.neris.NGui.core.services.nbtTagger.NBTTagger;
 import lombok.Getter;
 import org.bukkit.plugin.java.JavaPlugin;
 

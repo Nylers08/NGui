@@ -16,7 +16,6 @@ public class MyCommand implements CommandExecutor {
 
         Player player = (Player) sender;
 
-        // Дальше открытие меню для игрока
 
         return true;
     }
