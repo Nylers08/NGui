@@ -1,7 +1,7 @@
-package io.neris.NGui.core.guiElement.services;
+package io.neris.NGui.core.GuiElement.services;
 
-import io.neris.NGui.core.guiElement.controller.GuiElementController;
-import io.neris.NGui.core.guiElement.view.BaseGuiElement;
+import io.neris.NGui.core.GuiElement.controller.GuiElementController;
+import io.neris.NGui.core.GuiElement.view.BaseGuiElement;
 import io.neris.NGui.core.services.nbtTagger.GuiElementTagger;
 import org.jetbrains.annotations.NotNull;
 

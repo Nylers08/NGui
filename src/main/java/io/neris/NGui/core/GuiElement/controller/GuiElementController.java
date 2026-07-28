@@ -1,6 +1,6 @@
-package io.neris.NGui.core.guiElement.controller;
+package io.neris.NGui.core.GuiElement.controller;
 
-import io.neris.NGui.core.guiElement.GuiElementClickContext;
+import io.neris.NGui.core.GuiElement.GuiElementClickContext;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;

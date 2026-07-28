@@ -1,6 +1,6 @@
-package io.neris.NGui.core.guiElement.view;
+package io.neris.NGui.core.GuiElement.view;
 
-import io.neris.NGui.core.guiElement.controller.GuiElementRenderContext;
+import io.neris.NGui.core.GuiElement.controller.GuiElementRenderContext;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 

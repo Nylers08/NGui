@@ -1,6 +1,6 @@
-package io.neris.NGui.core.guiElement.services;
+package io.neris.NGui.core.GuiElement.services;
 
-import io.neris.NGui.core.guiElement.view.GuiElement;
+import io.neris.NGui.core.GuiElement.view.GuiElement;
 import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.inventory.ItemStack;

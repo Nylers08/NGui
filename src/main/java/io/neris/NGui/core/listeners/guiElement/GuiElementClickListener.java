@@ -1,6 +1,6 @@
 package io.neris.NGui.core.listeners.guiElement;
 
-import io.neris.NGui.core.guiElement.services.GuiElementRegistry;
+import io.neris.NGui.core.GuiElement.services.GuiElementRegistry;
 import io.neris.NGui.core.services.nbtTagger.NBTKeys;
 import io.neris.NGui.core.utils.nbt.NBTData;
 import io.neris.NGui.core.utils.nbt.NBTUtils;

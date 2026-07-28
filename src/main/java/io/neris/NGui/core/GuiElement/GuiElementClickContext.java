@@ -1,4 +1,4 @@
-package io.neris.NGui.core.guiElement;
+package io.neris.NGui.core.GuiElement;
 
 import lombok.Getter;
 import org.bukkit.event.inventory.InventoryClickEvent;

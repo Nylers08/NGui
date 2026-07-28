@@ -1,7 +1,7 @@
-package io.neris.NGui.core.guiElement.controller;
+package io.neris.NGui.core.GuiElement.controller;
 
 
-import io.neris.NGui.core.guiElement.GuiElementClickContext;
+import io.neris.NGui.core.GuiElement.GuiElementClickContext;
 
 public interface GUIElementAction {
 

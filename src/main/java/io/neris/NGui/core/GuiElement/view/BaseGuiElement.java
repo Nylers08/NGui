@@ -1,9 +1,9 @@
-package io.neris.NGui.core.guiElement.view;
+package io.neris.NGui.core.GuiElement.view;
 
-import io.neris.NGui.core.guiElement.GuiElementClickContext;
-import io.neris.NGui.core.guiElement.controller.GuiElementRenderContext;
+import io.neris.NGui.core.GuiElement.GuiElementClickContext;
+import io.neris.NGui.core.GuiElement.controller.GuiElementRenderContext;
 import io.neris.NGui.core.services.nbtTagger.GuiElementTagger;
-import io.neris.NGui.core.guiElement.controller.GuiElementController;
+import io.neris.NGui.core.GuiElement.controller.GuiElementController;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 
