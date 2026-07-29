@@ -1,43 +1,55 @@
 package io.neris.NGui.core.gui.element.services;
 
+import io.neris.NGui.core.gui.element.GuiElementPosition;
 import io.neris.NGui.core.gui.element.view.GuiElement;
-import lombok.Getter;
-import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.inventory.Inventory;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.UUID;
 
-public class GuiElementRegistry {
+public record GuiElementRegistry(GuiElementPosRegistry posRegistry, GuiUuidElementRegistry uuidRegistry) {
 
-    @Getter private final Map<UUID, GuiElement> registry = new HashMap<>();
-
-    @Getter private final JavaPlugin plugin;
-
-    @Getter private final int clearMapIntervalInTicks = 20 * 3;
-
-    public GuiElementRegistry(@NotNull JavaPlugin plugin){
-        this.plugin = plugin;
+    public GuiElementRegistry(@NotNull GuiElementPosRegistry posRegistry,
+                              @NotNull GuiUuidElementRegistry uuidRegistry) {
+        this.posRegistry = posRegistry;
+        this.uuidRegistry = uuidRegistry;
     }
 
 
-    public void register(@NotNull GuiElement guiElement){
-        registry.put(guiElement.uuid(), guiElement);
+    public void register(GuiElementPosition position, GuiElement element) {
+        posRegistry.register(position);
+
+        if (!uuidRegistry.containsUUID(element.uuid())) {
+            uuidRegistry.register(element);
+        }
     }
 
-    public void unregister(@NotNull UUID uuid) {
-        registry.remove(uuid);
+    public void unregister(@NotNull Inventory inventory, int slot) {
+        UUID uuid = getGuiElementUUID(inventory, slot);
+        unregister(inventory, uuid);
     }
 
-    public void unregister(@NotNull GuiElement element){
-        registry.remove(element.uuid());
-    }
-
-    public GuiElement get(UUID uuid){
-        return registry.get(uuid);
+    public void unregister(@NotNull Inventory inventory, @NotNull UUID elementUUID) {
+        posRegistry.unregister(inventory, elementUUID);
+        uuidRegistry.unregister(elementUUID);
     }
 
 
+    public GuiElement getGuiElement(@NotNull Inventory inventory, int slot){
+        UUID uuidGuiElement = getGuiElementUUID(inventory, slot);
+        return uuidRegistry.get(uuidGuiElement);
+    }
+
+    public UUID getGuiElementUUID(@NotNull Inventory inventory, int slot) {
+        return posRegistry.getGuiElementUUID(inventory, slot);
+    }
+
+    public int getGuiElementSlot(@NotNull Inventory inventory, @NotNull UUID elementUUID) {
+        return posRegistry.getSlotUUID(inventory, elementUUID);
+    }
+
+    public Inventory getInventory(@NotNull UUID elementUUID) {
+        return posRegistry.getInventory(elementUUID);
+    }
 
 }

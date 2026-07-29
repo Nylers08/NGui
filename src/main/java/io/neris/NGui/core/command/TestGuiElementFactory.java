@@ -5,7 +5,7 @@ import io.neris.NGui.core.gui.element.controller.GuiElementController;
 import io.neris.NGui.core.gui.element.controller.GuiElementRenderContext;
 import io.neris.NGui.core.gui.element.controller.actions.CancelPutAction;
 import io.neris.NGui.core.gui.element.controller.actions.HelloAction;
-import io.neris.NGui.core.gui.element.controller.renderers.PlayerNicknameRenderer;
+import io.neris.NGui.core.gui.element.controller.renderers.AirRender;
 import io.neris.NGui.core.gui.element.factory.GuiElementFactory;
 import io.neris.NGui.core.gui.element.view.BaseGuiElement;
 import io.neris.NGui.core.gui.element.view.GuiElement;
@@ -20,7 +20,7 @@ public class TestGuiElementFactory implements GuiElementFactory<UUID> {
     }
 
     private GuiElementController buildController(){
-        GUIElementRenderer renderer = new PlayerNicknameRenderer();
+        GUIElementRenderer renderer = new AirRender();
         GuiElementController controller = new GuiElementController(renderer);
         controller.addActions(new CancelPutAction(), new HelloAction());
         return controller;

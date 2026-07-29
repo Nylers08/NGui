@@ -17,7 +17,6 @@ public final class NGui extends JavaPlugin {
         serviceController = new ServiceController(this);
 
         this.getServer().getPluginManager().registerEvents(new GuiElementClickListener(
-                this,
                 serviceController.getElementRegistry()),
                 this);
 

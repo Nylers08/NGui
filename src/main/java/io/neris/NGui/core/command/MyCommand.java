@@ -7,6 +7,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.UUID;
@@ -29,16 +30,13 @@ public class MyCommand implements CommandExecutor {
         GuiElementFactory<UUID> elementFactory = new TestGuiElementFactory();
 
         if(args.length == 0){
+            Inventory inventory = player.getInventory();
             GuiElement element = elementFactory.create(player.getUniqueId());
-            player.getInventory().setItem(0, element.getItem());
+            serviceController.getElementInstaller().install(inventory, 0, element);
             return true;
         } else if(args.length == 1 && args[0].equalsIgnoreCase("gc")){
             System.gc();
             player.sendMessage("Garbage collector called");
-            return true;
-        } else if(args.length == 1 && args[0].equalsIgnoreCase("size")){
-            int size = serviceController.getElementRegistry().getRegistry().size();
-            player.sendMessage("Registry size: " + size);
             return true;
         }
 
