@@ -5,7 +5,7 @@ import org.jetbrains.annotations.NotNull;
 
 public interface Menu {
 
-    void setItems(@NotNull ItemStack... items);
+    void setItem(ItemStack item, int... slots);
 
     ItemStack getItem(int slot);
 }
