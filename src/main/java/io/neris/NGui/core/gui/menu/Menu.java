@@ -1,11 +1,13 @@
 package io.neris.NGui.core.gui.menu;
 
+import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
 public interface Menu {
 
-    void setItems(@NotNull ItemStack... items);
+    void setItem(ItemStack item, int... slots);
 
     ItemStack getItem(int slot);
+    Inventory getInventory();
 }
