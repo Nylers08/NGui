@@ -7,26 +7,16 @@ import io.neris.NGui.core.GuiElement.controller.actions.CancelPutAction;
 import io.neris.NGui.core.GuiElement.controller.actions.HelloAction;
 import io.neris.NGui.core.GuiElement.controller.renderers.PlayerNicknameRenderer;
 import io.neris.NGui.core.GuiElement.factory.GuiElementFactory;
-import io.neris.NGui.core.GuiElement.services.GuiElementRegistry;
 import io.neris.NGui.core.GuiElement.view.BaseGuiElement;
 import io.neris.NGui.core.GuiElement.view.GuiElement;
-import io.neris.NGui.core.services.nbtTagger.GuiElementTagger;
 
 import java.util.UUID;
 
 public class TestGuiElementFactory implements GuiElementFactory<UUID> {
 
-    private final GuiElementTagger elementTagger;
-    private final GuiElementRegistry elementRegistry;
-
-    public TestGuiElementFactory(GuiElementTagger elementTagger, GuiElementRegistry elementRegistry) {
-        this.elementTagger = elementTagger;
-        this.elementRegistry = elementRegistry;
-    }
-
     @Override
     public GuiElement create(UUID playerUUID) {
-        return new BaseGuiElement(buildRenderContext(playerUUID), buildController(), elementTagger, elementRegistry);
+        return new BaseGuiElement(buildRenderContext(playerUUID), buildController());
     }
 
     private GuiElementController buildController(){

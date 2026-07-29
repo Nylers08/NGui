@@ -17,12 +17,10 @@ public class BaseGuiElement implements GuiElement {
     private ItemStack itemStack;
 
     private final GuiElementController controller;
-    private final GuiElementTagger nbtTagger;
 
-    public BaseGuiElement(GuiElementRenderContext renderContext, GuiElementController controller, GuiElementTagger nbtTagger){
+    public BaseGuiElement(GuiElementRenderContext renderContext, GuiElementController controller){
         this.uuid = UUID.randomUUID();
 
-        this.nbtTagger = nbtTagger;
         this.controller = controller;
 
         render(renderContext);
@@ -37,9 +35,7 @@ public class BaseGuiElement implements GuiElement {
 
     @Override
     public void render(GuiElementRenderContext context) {
-        ItemStack renderItem = controller.render(context);
-        nbtTagger.addUUIDTag(renderItem, uuid);
-        itemStack = renderItem;
+        itemStack = controller.render(context);
     }
 
 

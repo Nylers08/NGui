@@ -16,7 +16,6 @@ import java.util.UUID;
 public class GuiElementRegistry {
 
     @Getter private final Map<UUID, GuiElement> registry = new HashMap<>();
-    @Getter private final Map<WeakReference<ItemStack>, UUID> weakItemStackRegistry = new HashMap<>();
 
     @Getter private final JavaPlugin plugin;
 
@@ -24,35 +23,25 @@ public class GuiElementRegistry {
 
     public GuiElementRegistry(@NotNull JavaPlugin plugin){
         this.plugin = plugin;
-        clearMapInterval();
     }
 
 
     public void register(@NotNull GuiElement guiElement){
         registry.put(guiElement.uuid(), guiElement);
-        weakItemStackRegistry.put(new WeakReference<>(guiElement.getItem()), guiElement.uuid());
     }
 
+    public void unregister(@NotNull UUID uuid) {
+        registry.remove(uuid);
+    }
+
+    public void unregister(@NotNull GuiElement element){
+        registry.remove(element.uuid());
+    }
 
     public GuiElement get(UUID uuid){
         return registry.get(uuid);
     }
 
-
-    private void clearMap(){
-        Set<WeakReference<ItemStack>> itemSet = weakItemStackRegistry.keySet();
-        for (WeakReference<ItemStack> item : itemSet){
-            if(item.get() == null){
-                UUID uuid = weakItemStackRegistry.get(item);
-                registry.remove(uuid);
-                weakItemStackRegistry.remove(item);
-            }
-        }
-    }
-
-    private void clearMapInterval(){
-        Bukkit.getScheduler().runTaskTimer(plugin, this::clearMap, 0, clearMapIntervalInTicks);
-    }
 
 
 }

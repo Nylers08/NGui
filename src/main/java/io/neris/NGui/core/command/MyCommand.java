@@ -29,8 +29,7 @@ public class MyCommand implements CommandExecutor {
         }
 
         Player player = (Player) sender;
-        GuiElementTagger elementTagger = serviceController.getGuiElementTagger();
-        GuiElementFactory<UUID> elementFactory = new TestGuiElementFactory(elementTagger, serviceController.getElementRegistry());
+        GuiElementFactory<UUID> elementFactory = new TestGuiElementFactory();
 
         if(args.length == 0){
             GuiElement element = elementFactory.create(player.getUniqueId());
