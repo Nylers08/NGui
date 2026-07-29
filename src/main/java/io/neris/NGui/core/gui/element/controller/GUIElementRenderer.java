@@ -1,4 +1,4 @@
-package io.neris.NGui.core.GuiElement.controller;
+package io.neris.NGui.core.gui.element.controller;
 
 import org.bukkit.inventory.ItemStack;
 

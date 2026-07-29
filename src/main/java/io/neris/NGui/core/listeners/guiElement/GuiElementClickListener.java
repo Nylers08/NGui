@@ -1,7 +1,7 @@
 package io.neris.NGui.core.listeners.guiElement;
 
-import io.neris.NGui.core.GuiElement.services.GuiElementRegistry;
-import io.neris.NGui.core.GuiElement.view.GuiElement;
+import io.neris.NGui.core.gui.element.services.GuiElementRegistry;
+import io.neris.NGui.core.gui.element.view.GuiElement;
 import io.neris.NGui.core.services.nbtTagger.NBTKeys;
 import io.neris.NGui.core.utils.nbt.NBTData;
 import io.neris.NGui.core.utils.nbt.NBTUtils;
@@ -14,7 +14,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.UUID;
-import java.util.logging.LogRecord;
 
 
 public class GuiElementClickListener implements Listener {

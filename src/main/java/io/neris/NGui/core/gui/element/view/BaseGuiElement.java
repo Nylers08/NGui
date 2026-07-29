@@ -1,14 +1,11 @@
-package io.neris.NGui.core.GuiElement.view;
+package io.neris.NGui.core.gui.element.view;
 
-import io.neris.NGui.core.GuiElement.GuiElementClickContext;
-import io.neris.NGui.core.GuiElement.controller.GuiElementRenderContext;
-import io.neris.NGui.core.GuiElement.services.GuiElementRegistry;
-import io.neris.NGui.core.services.nbtTagger.GuiElementTagger;
-import io.neris.NGui.core.GuiElement.controller.GuiElementController;
+import io.neris.NGui.core.gui.element.GuiElementClickContext;
+import io.neris.NGui.core.gui.element.controller.GuiElementRenderContext;
+import io.neris.NGui.core.gui.element.controller.GuiElementController;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 
-import java.lang.ref.WeakReference;
 import java.util.UUID;
 
 public class BaseGuiElement implements GuiElement {

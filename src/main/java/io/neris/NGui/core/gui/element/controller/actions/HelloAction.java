@@ -1,7 +1,7 @@
-package io.neris.NGui.core.GuiElement.controller.actions;
+package io.neris.NGui.core.gui.element.controller.actions;
 
-import io.neris.NGui.core.GuiElement.GuiElementClickContext;
-import io.neris.NGui.core.GuiElement.controller.GUIElementAction;
+import io.neris.NGui.core.gui.element.GuiElementClickContext;
+import io.neris.NGui.core.gui.element.controller.GUIElementAction;
 
 public class HelloAction implements GUIElementAction {
 

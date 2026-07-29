@@ -1,15 +1,12 @@
 package io.neris.NGui.core.command;
 
-import io.neris.NGui.core.GuiElement.factory.GuiElementFactory;
-import io.neris.NGui.core.GuiElement.view.GuiElement;
+import io.neris.NGui.core.gui.element.factory.GuiElementFactory;
+import io.neris.NGui.core.gui.element.view.GuiElement;
 import io.neris.NGui.core.services.ServiceController;
-import io.neris.NGui.core.services.nbtTagger.GuiElementTagger;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.PlayerInventory;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.UUID;

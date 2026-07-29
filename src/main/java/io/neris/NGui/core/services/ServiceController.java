@@ -1,6 +1,6 @@
 package io.neris.NGui.core.services;
 
-import io.neris.NGui.core.GuiElement.services.GuiElementRegistry;
+import io.neris.NGui.core.gui.element.services.GuiElementRegistry;
 import io.neris.NGui.core.services.nbtTagger.GuiElementTagger;
 import io.neris.NGui.core.services.nbtTagger.NBTTagger;
 import lombok.Getter;

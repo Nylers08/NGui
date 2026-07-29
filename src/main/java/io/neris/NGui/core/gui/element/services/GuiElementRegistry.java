@@ -1,16 +1,12 @@
-package io.neris.NGui.core.GuiElement.services;
+package io.neris.NGui.core.gui.element.services;
 
-import io.neris.NGui.core.GuiElement.view.GuiElement;
+import io.neris.NGui.core.gui.element.view.GuiElement;
 import lombok.Getter;
-import org.bukkit.Bukkit;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 
-import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 import java.util.UUID;
 
 public class GuiElementRegistry {
