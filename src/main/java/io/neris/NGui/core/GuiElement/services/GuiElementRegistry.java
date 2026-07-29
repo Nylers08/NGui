@@ -5,6 +5,7 @@ import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.NotNull;
 
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
@@ -19,15 +20,15 @@ public class GuiElementRegistry {
 
     @Getter private final JavaPlugin plugin;
 
-    @Getter private final int clearMapIntervalInTicks = 20 * 300;
+    @Getter private final int clearMapIntervalInTicks = 20 * 3;
 
-    public GuiElementRegistry(JavaPlugin plugin){
+    public GuiElementRegistry(@NotNull JavaPlugin plugin){
         this.plugin = plugin;
         clearMapInterval();
     }
 
 
-    public void register(GuiElement guiElement){
+    public void register(@NotNull GuiElement guiElement){
         registry.put(guiElement.uuid(), guiElement);
         weakItemStackRegistry.put(new WeakReference<>(guiElement.getItem()), guiElement.uuid());
     }

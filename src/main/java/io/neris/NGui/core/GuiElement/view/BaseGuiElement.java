@@ -2,11 +2,13 @@ package io.neris.NGui.core.GuiElement.view;
 
 import io.neris.NGui.core.GuiElement.GuiElementClickContext;
 import io.neris.NGui.core.GuiElement.controller.GuiElementRenderContext;
+import io.neris.NGui.core.GuiElement.services.GuiElementRegistry;
 import io.neris.NGui.core.services.nbtTagger.GuiElementTagger;
 import io.neris.NGui.core.GuiElement.controller.GuiElementController;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 
+import java.lang.ref.WeakReference;
 import java.util.UUID;
 
 public class BaseGuiElement implements GuiElement {
@@ -17,11 +19,13 @@ public class BaseGuiElement implements GuiElement {
     private final GuiElementController controller;
     private final GuiElementTagger nbtTagger;
 
-    public BaseGuiElement(GuiElementController controller, GuiElementTagger nbtTagger){
+    public BaseGuiElement(GuiElementRenderContext renderContext, GuiElementController controller, GuiElementTagger nbtTagger){
         this.uuid = UUID.randomUUID();
-        this.nbtTagger = nbtTagger;
 
+        this.nbtTagger = nbtTagger;
         this.controller = controller;
+
+        render(renderContext);
     }
 
 
@@ -33,8 +37,9 @@ public class BaseGuiElement implements GuiElement {
 
     @Override
     public void render(GuiElementRenderContext context) {
-        itemStack = controller.render(context);
-        nbtTagger.addUUIDTag(itemStack, uuid);
+        ItemStack renderItem = controller.render(context);
+        nbtTagger.addUUIDTag(renderItem, uuid);
+        itemStack = renderItem;
     }
 
 

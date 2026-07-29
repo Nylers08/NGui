@@ -1,9 +1,11 @@
 package io.neris.NGui.core.listeners.guiElement;
 
 import io.neris.NGui.core.GuiElement.services.GuiElementRegistry;
+import io.neris.NGui.core.GuiElement.view.GuiElement;
 import io.neris.NGui.core.services.nbtTagger.NBTKeys;
 import io.neris.NGui.core.utils.nbt.NBTData;
 import io.neris.NGui.core.utils.nbt.NBTUtils;
+import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -12,6 +14,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.UUID;
+import java.util.logging.LogRecord;
 
 
 public class GuiElementClickListener implements Listener {
@@ -40,7 +43,14 @@ public class GuiElementClickListener implements Listener {
         }
 
         UUID uuid = UUID.fromString(strUuid);
-        elementRegistry.get(uuid).click(event);
+
+        GuiElement element = elementRegistry.get(uuid);
+        if(element == null){
+            Bukkit.getLogger().warning("Не удалось найти GuiElement в Registry. UUID: " + strUuid);
+            return;
+        }
+
+        element.click(event);
     }
 
 
