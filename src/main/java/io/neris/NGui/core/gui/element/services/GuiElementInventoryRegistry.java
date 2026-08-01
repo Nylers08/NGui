@@ -8,9 +8,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-public class GuiElementPosRegistry {
+public class GuiElementInventoryRegistry {
 
-    private final Map<Inventory, GuiSlotsRegistry> registry = new HashMap<>();
+    private final Map<Inventory, GuiElementSlotRegistry> registry = new HashMap<>();
     private final Map<UUID, Inventory> uuidInventoryMap = new HashMap<>();
 
 
@@ -46,7 +46,7 @@ public class GuiElementPosRegistry {
     }
 
 
-    public GuiSlotsRegistry getSlotsRegistry(@NotNull Inventory inventory){
+    public GuiElementSlotRegistry getSlotsRegistry(@NotNull Inventory inventory){
         return registry.get(inventory);
     }
 
@@ -55,7 +55,7 @@ public class GuiElementPosRegistry {
     }
 
     public UUID getGuiElementUUID(@NotNull Inventory inventory, int slot) {
-        GuiSlotsRegistry slotsRegistry = getSlotsRegistry(inventory);
+        GuiElementSlotRegistry slotsRegistry = getSlotsRegistry(inventory);
         if(slotsRegistry == null){
             return null;
         }
@@ -90,7 +90,7 @@ public class GuiElementPosRegistry {
 
     private void addMenuIfNotExist(@NotNull Inventory inventory){
         if(!registry.containsKey(inventory))
-            registry.put(inventory, new GuiSlotsRegistry());
+            registry.put(inventory, new GuiElementSlotRegistry());
     }
 
 }

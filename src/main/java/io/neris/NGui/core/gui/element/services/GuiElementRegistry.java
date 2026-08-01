@@ -7,9 +7,9 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.UUID;
 
-public record GuiElementRegistry(GuiElementPosRegistry posRegistry, GuiUuidElementRegistry uuidRegistry) {
+public record GuiElementRegistry(GuiElementInventoryRegistry posRegistry, GuiUuidElementRegistry uuidRegistry) {
 
-    public GuiElementRegistry(@NotNull GuiElementPosRegistry posRegistry,
+    public GuiElementRegistry(@NotNull GuiElementInventoryRegistry posRegistry,
                               @NotNull GuiUuidElementRegistry uuidRegistry) {
         this.posRegistry = posRegistry;
         this.uuidRegistry = uuidRegistry;
