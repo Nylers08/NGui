@@ -1,11 +1,7 @@
 package io.neris.NGui.core.gui.element.controller.actions;
 
-public enum NbtActionKeys {
+public class NbtActionKeys {
 
-    CANCEL_PUT("cancel_put"),
-    GO_TO_MENU("go_to_menu");
-
-    NbtActionKeys(String nbtKey) {
-
-    }
+    public static final String CANCEL_PUT = "cancelPut";
+    public static final String GO_TO_MENU = "goToMenu";
 }
