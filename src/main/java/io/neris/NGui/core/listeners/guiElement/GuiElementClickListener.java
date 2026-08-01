@@ -1,6 +1,6 @@
 package io.neris.NGui.core.listeners.guiElement;
 
-import io.neris.NGui.core.gui.element.services.GuiElementRegistry;
+import io.neris.NGui.core.gui.element.services.slotBinding.GuiElementBindingSystem;
 import io.neris.NGui.core.gui.element.view.GuiElement;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -12,9 +12,9 @@ import org.jetbrains.annotations.NotNull;
 
 public class GuiElementClickListener implements Listener {
 
-    private final GuiElementRegistry elementRegistry;
+    private final GuiElementBindingSystem elementRegistry;
 
-    public GuiElementClickListener(@NotNull GuiElementRegistry elementRegistry) {
+    public GuiElementClickListener(@NotNull GuiElementBindingSystem elementRegistry) {
         this.elementRegistry = elementRegistry;
     }
 

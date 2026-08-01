@@ -1,4 +1,4 @@
-package io.neris.NGui.core.gui.element.services;
+package io.neris.NGui.core.gui.element.services.slotBinding;
 
 import io.neris.NGui.core.gui.element.GuiElementPosition;
 import io.neris.NGui.core.gui.element.view.GuiElement;
@@ -7,9 +7,9 @@ import org.bukkit.inventory.Inventory;
 
 public class GuiElementInstaller {
 
-    private final GuiElementRegistry elementRegistry;
+    private final GuiElementBindingSystem elementRegistry;
 
-    public GuiElementInstaller(GuiElementRegistry elementRegistry) {
+    public GuiElementInstaller(GuiElementBindingSystem elementRegistry) {
         this.elementRegistry = elementRegistry;
     }
 

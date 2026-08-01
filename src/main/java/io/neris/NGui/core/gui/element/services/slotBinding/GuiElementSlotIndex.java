@@ -1,4 +1,4 @@
-package io.neris.NGui.core.gui.element.services;
+package io.neris.NGui.core.gui.element.services.slotBinding;
 
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
@@ -6,15 +6,16 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.UUID;
 
-public class GuiElementSlotRegistry {
+public class GuiElementSlotIndex {
 
     private final BiMap<Integer, UUID> slots = HashBiMap.create();
 
-    public GuiElementSlotRegistry(int slot, @NotNull UUID uuid){
+
+    public GuiElementSlotIndex(int slot, @NotNull UUID uuid){
         register(slot, uuid);
     }
 
-    public GuiElementSlotRegistry(){
+    public GuiElementSlotIndex(){
 
     }
 
@@ -45,7 +46,7 @@ public class GuiElementSlotRegistry {
     }
 
 
-    private boolean containsSlot(int slot){
+    public boolean containsSlot(int slot){
         return slots.containsKey(slot);
     }
 

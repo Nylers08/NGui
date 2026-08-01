@@ -1,4 +1,4 @@
-package io.neris.NGui.core.gui.element.services;
+package io.neris.NGui.core.gui.element.services.slotBinding;
 
 import io.neris.NGui.core.gui.element.view.GuiElement;
 import lombok.Getter;
@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-public class GuiUuidElementRegistry {
+public class GuiElementRegistry {
 
     @Getter private final Map<UUID, GuiElement> registry = new HashMap<>();
 

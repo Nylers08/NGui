@@ -1,4 +1,4 @@
-package io.neris.NGui.core.gui.element.services;
+package io.neris.NGui.core.gui.element.services.slotBinding;
 
 import io.neris.NGui.core.gui.element.GuiElementPosition;
 import org.bukkit.inventory.Inventory;
@@ -8,9 +8,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-public class GuiElementInventoryRegistry {
+public class GuiElementInventoryIndex {
 
-    private final Map<Inventory, GuiElementSlotRegistry> registry = new HashMap<>();
+    private final Map<Inventory, GuiElementSlotIndex> registry = new HashMap<>();
     private final Map<UUID, Inventory> uuidInventoryMap = new HashMap<>();
 
 
@@ -46,7 +46,7 @@ public class GuiElementInventoryRegistry {
     }
 
 
-    public GuiElementSlotRegistry getSlotsRegistry(@NotNull Inventory inventory){
+    public GuiElementSlotIndex getSlotsRegistry(@NotNull Inventory inventory){
         return registry.get(inventory);
     }
 
@@ -55,7 +55,7 @@ public class GuiElementInventoryRegistry {
     }
 
     public UUID getGuiElementUUID(@NotNull Inventory inventory, int slot) {
-        GuiElementSlotRegistry slotsRegistry = getSlotsRegistry(inventory);
+        GuiElementSlotIndex slotsRegistry = getSlotsRegistry(inventory);
         if(slotsRegistry == null){
             return null;
         }
@@ -90,7 +90,7 @@ public class GuiElementInventoryRegistry {
 
     private void addMenuIfNotExist(@NotNull Inventory inventory){
         if(!registry.containsKey(inventory))
-            registry.put(inventory, new GuiElementSlotRegistry());
+            registry.put(inventory, new GuiElementSlotIndex());
     }
 
 }
