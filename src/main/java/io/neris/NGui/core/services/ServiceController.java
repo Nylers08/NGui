@@ -1,5 +1,7 @@
 package io.neris.NGui.core.services;
 
+import io.neris.NGui.core.gui.element.controller.actions.NbtAction;
+import io.neris.NGui.core.gui.element.services.nbtAction.NbtActionRegistry;
 import io.neris.NGui.core.gui.element.services.slotBinding.GuiElementInstaller;
 import io.neris.NGui.core.gui.element.services.slotBinding.GuiElementInventoryIndex;
 import io.neris.NGui.core.gui.element.services.slotBinding.GuiElementBindingSystem;
@@ -21,6 +23,8 @@ public class ServiceController {
     @Getter private final GuiElementBindingSystem elementRegistry;
     @Getter private final GuiElementInstaller elementInstaller;
 
+    @Getter private final NbtActionRegistry nbtActionRegistry;
+
     public ServiceController(JavaPlugin plugin) {
         this.plugin = plugin;
 
@@ -31,5 +35,10 @@ public class ServiceController {
         this.uuidElementRegistry = new GuiElementRegistry();
         this.elementRegistry = new GuiElementBindingSystem(elementPosRegistry, uuidElementRegistry);
         this.elementInstaller = new GuiElementInstaller(elementRegistry);
+
+        this.nbtActionRegistry = new NbtActionRegistry();
     }
+
+
+
 }

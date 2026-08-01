@@ -1,7 +1,5 @@
 package io.neris.NGui.core.gui.element.controller.renderers;
 
-import io.neris.NGui.core.gui.element.controller.GUIElementRenderer;
-import io.neris.NGui.core.gui.element.controller.GuiElementRenderContext;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;

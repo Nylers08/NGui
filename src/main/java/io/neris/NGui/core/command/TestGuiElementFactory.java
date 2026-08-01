@@ -1,10 +1,10 @@
 package io.neris.NGui.core.command;
 
-import io.neris.NGui.core.gui.element.controller.GUIElementRenderer;
+import io.neris.NGui.core.gui.element.controller.renderers.GUIElementRenderer;
 import io.neris.NGui.core.gui.element.controller.GuiElementController;
-import io.neris.NGui.core.gui.element.controller.GuiElementRenderContext;
-import io.neris.NGui.core.gui.element.controller.actions.CancelPutAction;
-import io.neris.NGui.core.gui.element.controller.actions.HelloAction;
+import io.neris.NGui.core.gui.element.controller.renderers.GuiElementRenderContext;
+import io.neris.NGui.core.gui.element.controller.actions.base.CancelPutAction;
+import io.neris.NGui.core.gui.element.controller.actions.base.HelloAction;
 import io.neris.NGui.core.gui.element.controller.renderers.AirRender;
 import io.neris.NGui.core.gui.element.factory.GuiElementFactory;
 import io.neris.NGui.core.gui.element.view.BaseGuiElement;

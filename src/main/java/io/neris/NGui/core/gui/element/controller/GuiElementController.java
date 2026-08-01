@@ -1,6 +1,9 @@
 package io.neris.NGui.core.gui.element.controller;
 
 import io.neris.NGui.core.gui.element.GuiElementClickContext;
+import io.neris.NGui.core.gui.element.controller.actions.GUIElementAction;
+import io.neris.NGui.core.gui.element.controller.renderers.GUIElementRenderer;
+import io.neris.NGui.core.gui.element.controller.renderers.GuiElementRenderContext;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
