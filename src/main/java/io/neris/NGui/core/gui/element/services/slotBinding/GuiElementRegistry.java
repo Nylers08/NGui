@@ -1,6 +1,6 @@
 package io.neris.NGui.core.gui.element.services.slotBinding;
 
-import io.neris.NGui.core.gui.element.view.GuiElement;
+import io.neris.NGui.core.gui.element.element.GuiElement;
 import lombok.Getter;
 import org.jetbrains.annotations.NotNull;
 

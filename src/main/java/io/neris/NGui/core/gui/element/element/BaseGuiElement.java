@@ -1,6 +1,6 @@
-package io.neris.NGui.core.gui.element.view;
+package io.neris.NGui.core.gui.element.element;
 
-import io.neris.NGui.core.gui.element.GuiElementClickContext;
+import io.neris.NGui.core.gui.element.EventContext;
 import io.neris.NGui.core.gui.element.controller.renderers.GuiElementRenderContext;
 import io.neris.NGui.core.gui.element.controller.GuiElementController;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -10,10 +10,10 @@ import java.util.UUID;
 
 public class BaseGuiElement implements GuiElement {
 
-    private final UUID uuid;
-    private ItemStack itemStack;
+    protected final UUID uuid;
+    protected ItemStack itemStack;
 
-    private final GuiElementController controller;
+    protected final GuiElementController controller;
 
     public BaseGuiElement(GuiElementRenderContext renderContext, GuiElementController controller){
         this.uuid = UUID.randomUUID();
@@ -26,7 +26,7 @@ public class BaseGuiElement implements GuiElement {
 
     @Override
     public void click(InventoryClickEvent event) {
-        GuiElementClickContext clickContext = buildClickContext(event);
+        EventContext clickContext = buildClickContext(event);
         controller.execute(clickContext);
     }
 
@@ -47,7 +47,7 @@ public class BaseGuiElement implements GuiElement {
     }
 
 
-    private GuiElementClickContext buildClickContext(InventoryClickEvent event){
-        return new GuiElementClickContext(event);
+    private EventContext buildClickContext(InventoryClickEvent event){
+        return new EventContext(event);
     }
 }

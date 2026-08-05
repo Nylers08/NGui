@@ -1,9 +1,15 @@
 package io.neris.NGui.core.services.nbtTagger;
 
 import io.neris.NGui.core.utils.nbt.NBTData;
+import io.neris.NGui.core.utils.nbt.NBTUtils;
 import lombok.Getter;
+import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.List;
+import java.util.Set;
 
 public class NBTTagger {
 
@@ -13,8 +19,21 @@ public class NBTTagger {
         this.plugin = plugin;
     }
 
-    public void addStringNBT(ItemStack itemStack, String key, String value){
+    public void addStringNBT(@NotNull ItemStack itemStack, @NotNull String key, String value){
         NBTData nbtData = new NBTData(plugin, key, value);
         io.neris.NGui.core.utils.nbt.NBTUtils.addCustomStringNBT(itemStack, nbtData);
+    }
+
+    public String getValueStringNBT(@NotNull ItemStack itemStack, @NotNull String key){
+        NBTData nbtData = new NBTData(plugin, key, "");
+        return NBTUtils.getCustomStringNBT(itemStack, nbtData);
+    }
+
+    public Set<String> getKeys(@NotNull ItemStack itemStack){
+        return NBTUtils.getKeys(itemStack);
+    }
+
+    public Set<NamespacedKey> getNamespacedKeys(@NotNull ItemStack itemStack){
+        return NBTUtils.getNamespacedKeys(itemStack);
     }
 }

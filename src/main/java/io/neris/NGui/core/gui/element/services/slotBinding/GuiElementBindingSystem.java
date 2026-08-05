@@ -1,7 +1,6 @@
 package io.neris.NGui.core.gui.element.services.slotBinding;
 
-import io.neris.NGui.core.gui.element.GuiElementPosition;
-import io.neris.NGui.core.gui.element.view.GuiElement;
+import io.neris.NGui.core.gui.element.element.GuiElement;
 import org.bukkit.inventory.Inventory;
 import org.jetbrains.annotations.NotNull;
 
@@ -48,12 +47,6 @@ public class GuiElementBindingSystem {
         return inventoryIndex.getGuiElementUUID(inventory, slot);
     }
 
-    public int getGuiElementSlot(@NotNull Inventory inventory, @NotNull UUID elementUUID) {
-        return inventoryIndex.getSlotUUID(inventory, elementUUID);
-    }
 
-    public Inventory getInventory(@NotNull UUID elementUUID) {
-        return inventoryIndex.getInventory(elementUUID);
-    }
 
 }

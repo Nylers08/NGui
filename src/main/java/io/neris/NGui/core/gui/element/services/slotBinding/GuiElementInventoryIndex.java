@@ -1,6 +1,5 @@
 package io.neris.NGui.core.gui.element.services.slotBinding;
 
-import io.neris.NGui.core.gui.element.GuiElementPosition;
 import org.bukkit.inventory.Inventory;
 import org.jetbrains.annotations.NotNull;
 
@@ -11,7 +10,6 @@ import java.util.UUID;
 public class GuiElementInventoryIndex {
 
     private final Map<Inventory, GuiElementSlotIndex> registry = new HashMap<>();
-    private final Map<UUID, Inventory> uuidInventoryMap = new HashMap<>();
 
 
     public void register(@NotNull GuiElementPosition position){
@@ -21,7 +19,6 @@ public class GuiElementInventoryIndex {
 
         addMenuIfNotExist(inventory);
         registry.get(inventory).register(slot, uuid);
-        uuidInventoryMap.put(uuid, inventory);
     }
 
     public void unregister(@NotNull Inventory inventory, int slot){
@@ -38,20 +35,12 @@ public class GuiElementInventoryIndex {
         if(!registry.containsKey(inventory)){
             return;
         }
-
-        uuidInventoryMap.remove(elementUuid);
-
-        getSlotsRegistry(inventory).unregister(elementUuid);
         clearMenuIfNotExistsValues(inventory);
     }
 
 
     public GuiElementSlotIndex getSlotsRegistry(@NotNull Inventory inventory){
         return registry.get(inventory);
-    }
-
-    public Inventory getInventory(@NotNull UUID elementUuid){
-        return uuidInventoryMap.get(elementUuid);
     }
 
     public UUID getGuiElementUUID(@NotNull Inventory inventory, int slot) {
@@ -62,17 +51,13 @@ public class GuiElementInventoryIndex {
         return slotsRegistry.getUUID(slot);
     }
 
-    public int getSlotUUID(@NotNull Inventory inventory, @NotNull UUID elementUuid){
-        return getSlotsRegistry(inventory).getSlot(elementUuid);
-    }
-
     public int getSize(){
         return registry.size();
     }
 
 
-    public boolean containsInventory(Inventory inventoryu){
-        return registry.containsKey(inventoryu);
+    public boolean containsInventory(Inventory inventory){
+        return registry.containsKey(inventory);
     }
 
 
@@ -85,7 +70,6 @@ public class GuiElementInventoryIndex {
 
     private void removeFromUuidMenuMap(Inventory inventory, int slot){
         UUID elementUUID = getGuiElementUUID(inventory, slot);
-        uuidInventoryMap.remove(elementUUID);
     }
 
     private void addMenuIfNotExist(@NotNull Inventory inventory){

@@ -1,4 +1,4 @@
-package io.neris.NGui.core.gui.element;
+package io.neris.NGui.core.gui.element.services.slotBinding;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,13 +1,17 @@
 package io.neris.NGui.core.services;
 
-import io.neris.NGui.core.gui.element.controller.actions.NbtAction;
+import io.neris.NGui.core.gui.element.controller.actions.nbt.CancelPutNbtAction;
+import io.neris.NGui.core.gui.element.controller.actions.nbt.MsgPlayerNbtAction;
+import io.neris.NGui.core.gui.element.services.installers.BaseGuiElementInstaller;
+import io.neris.NGui.core.gui.element.services.nbtAction.NbtActionExecutor;
 import io.neris.NGui.core.gui.element.services.nbtAction.NbtActionRegistry;
-import io.neris.NGui.core.gui.element.services.slotBinding.GuiElementInstaller;
+import io.neris.NGui.core.gui.element.services.installers.SlotBindingGuiElementInstaller;
 import io.neris.NGui.core.gui.element.services.slotBinding.GuiElementInventoryIndex;
 import io.neris.NGui.core.gui.element.services.slotBinding.GuiElementBindingSystem;
 import io.neris.NGui.core.gui.element.services.slotBinding.GuiElementRegistry;
 import io.neris.NGui.core.services.nbtTagger.GuiElementTagger;
 import io.neris.NGui.core.services.nbtTagger.NBTTagger;
+import io.neris.NGui.core.utils.gui.action.NBTActionUtils;
 import lombok.Getter;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -21,9 +25,11 @@ public class ServiceController {
     @Getter private final GuiElementInventoryIndex elementPosRegistry;
     @Getter private final GuiElementRegistry uuidElementRegistry;
     @Getter private final GuiElementBindingSystem elementRegistry;
-    @Getter private final GuiElementInstaller elementInstaller;
+    @Getter private final SlotBindingGuiElementInstaller slotElementInstaller;
+    @Getter private final BaseGuiElementInstaller baseElementInstaller;
 
     @Getter private final NbtActionRegistry nbtActionRegistry;
+    @Getter private final NbtActionExecutor nbtActionExecutor;
 
     public ServiceController(JavaPlugin plugin) {
         this.plugin = plugin;
@@ -34,11 +40,18 @@ public class ServiceController {
         this.elementPosRegistry = new GuiElementInventoryIndex();
         this.uuidElementRegistry = new GuiElementRegistry();
         this.elementRegistry = new GuiElementBindingSystem(elementPosRegistry, uuidElementRegistry);
-        this.elementInstaller = new GuiElementInstaller(elementRegistry);
+        this.slotElementInstaller = new SlotBindingGuiElementInstaller(elementRegistry);
+        this.baseElementInstaller = new BaseGuiElementInstaller();
 
         this.nbtActionRegistry = new NbtActionRegistry();
+        this.nbtActionExecutor = new NbtActionExecutor(nbtActionRegistry);
+
+        initNbtAction();
+        NBTActionUtils.init(nbtTagger);
     }
 
 
-
+    private void initNbtAction(){
+        nbtActionRegistry.register(new CancelPutNbtAction(), new MsgPlayerNbtAction(nbtTagger));
+    }
 }

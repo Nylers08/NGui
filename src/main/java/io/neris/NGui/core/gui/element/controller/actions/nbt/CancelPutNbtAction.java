@@ -1,10 +1,10 @@
 package io.neris.NGui.core.gui.element.controller.actions.nbt;
 
-import io.neris.NGui.core.gui.element.GuiElementClickContext;
 import io.neris.NGui.core.gui.element.controller.actions.NbtAction;
 import io.neris.NGui.core.gui.element.controller.actions.NbtActionKeys;
+import io.neris.NGui.core.gui.element.controller.actions.base.CancelPutAction;
 
-public class CancelPutNbtAction implements NbtAction {
+public class CancelPutNbtAction extends CancelPutAction implements NbtAction {
 
     @Override
     public String key() {
@@ -12,7 +12,7 @@ public class CancelPutNbtAction implements NbtAction {
     }
 
     @Override
-    public void execute(GuiElementClickContext clickContext) {
-
+    public String value() {
+        return "true";
     }
 }

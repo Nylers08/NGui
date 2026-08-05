@@ -2,7 +2,6 @@ package io.neris.NGui.core.gui.element.services.nbtAction;
 
 import io.neris.NGui.core.gui.element.controller.actions.GUIElementAction;
 import io.neris.NGui.core.gui.element.controller.actions.NbtAction;
-import io.neris.NGui.core.gui.element.view.GuiElement;
 import org.jetbrains.annotations.NotNull;
 import org.jspecify.annotations.Nullable;
 
@@ -40,7 +39,7 @@ public class NbtActionRegistry {
     }
 
 
-    private @Nullable GUIElementAction getAction(@NotNull String key){
+    public @Nullable GUIElementAction getAction(@NotNull String key){
         return actionMap.get(key);
     }
 }

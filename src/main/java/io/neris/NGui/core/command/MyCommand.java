@@ -1,7 +1,7 @@
 package io.neris.NGui.core.command;
 
 import io.neris.NGui.core.gui.element.factory.GuiElementFactory;
-import io.neris.NGui.core.gui.element.view.GuiElement;
+import io.neris.NGui.core.gui.element.element.GuiElement;
 import io.neris.NGui.core.services.ServiceController;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -27,12 +27,12 @@ public class MyCommand implements CommandExecutor {
         }
 
         Player player = (Player) sender;
-        GuiElementFactory<UUID> elementFactory = new TestGuiElementFactory();
+        GuiElementFactory<UUID> elementFactory = new TestGuiElementFactory(serviceController.getNbtTagger());
 
         if(args.length == 0){
             Inventory inventory = player.getInventory();
             GuiElement element = elementFactory.create(player.getUniqueId());
-            serviceController.getElementInstaller().install(inventory, 0, element);
+            serviceController.getBaseElementInstaller().install(inventory, element, 0, 8);
             return true;
         } else if(args.length == 1 && args[0].equalsIgnoreCase("gc")){
             System.gc();
