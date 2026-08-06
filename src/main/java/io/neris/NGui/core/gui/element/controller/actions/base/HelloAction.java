@@ -8,7 +8,7 @@ public class HelloAction implements GUIElementAction {
 
     @Override
     public void execute(EventContext clickContext) {
-        if(clickContext.getEvent() instanceof InventoryClickEvent clickEvent){
+        if(clickContext.event instanceof InventoryClickEvent clickEvent){
             clickEvent.getWhoClicked().sendMessage("Hello, World!");
         }
 

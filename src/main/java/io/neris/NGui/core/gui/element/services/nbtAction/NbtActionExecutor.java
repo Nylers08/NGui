@@ -1,6 +1,7 @@
 package io.neris.NGui.core.gui.element.services.nbtAction;
 
 import io.neris.NGui.core.gui.element.EventContext;
+import io.neris.NGui.core.gui.element.MainItemEventContext;
 import io.neris.NGui.core.gui.element.controller.actions.GUIElementAction;
 import io.neris.NGui.core.utils.nbt.NBTUtils;
 import org.bukkit.inventory.ItemStack;
@@ -17,6 +18,17 @@ public class NbtActionExecutor {
         this.registry = registry;
     }
 
+
+    public void execute(EventContext context){
+        for (ItemStack itemStack : context.items){
+            MainItemEventContext mainItemEventContext = new MainItemEventContext(context, itemStack);
+            execute(mainItemEventContext);
+        }
+    }
+
+    public void execute(MainItemEventContext mainItemEventContext){
+        execute(mainItemEventContext, mainItemEventContext.getMainItem());
+    }
 
     public void execute(EventContext clickContext, ItemStack itemStack){
         Set<String> keys = NBTUtils.getKeys(itemStack);

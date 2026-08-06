@@ -17,7 +17,7 @@ import io.neris.NGui.core.services.nbtTagger.NBTTagger;
 
 import java.util.UUID;
 
-public class TestGuiElementFactory implements GuiElementFactory<UUID> {
+public class TestGuiElementFactory implements GuiElementFactory<TestFactoryContext> {
 
     private final NBTTagger nbtTagger;
 
@@ -26,16 +26,21 @@ public class TestGuiElementFactory implements GuiElementFactory<UUID> {
     }
 
     @Override
-    public GuiElement create(UUID playerUUID) {
-        return new NbtGuiElement(buildRenderContext(playerUUID), buildController(), nbtTagger);
+    public GuiElement create(TestFactoryContext context) {
+        GuiElementRenderContext renderContext = buildRenderContext(context.playerUUID);
+        GuiElementController controller = buildController(context);
+
+        return new NbtGuiElement(renderContext, controller, nbtTagger);
     }
 
-    private GuiElementController buildController(){
-        GUIElementRenderer renderer = new PlayerNicknameRenderer();
+    private GuiElementController buildController(TestFactoryContext context){
+        GUIElementRenderer renderer = new PlayerNicknameRenderer(context.material, context.amount);
         GuiElementController controller = new GuiElementController(renderer);
 
-        controller.addActions(new CancelPutNbtAction(),
+        controller.addActions(
+                new CancelPutNbtAction(),
                 new MsgPlayerNbtAction(nbtTagger, "Ты лох"));
+
         return controller;
     }
 

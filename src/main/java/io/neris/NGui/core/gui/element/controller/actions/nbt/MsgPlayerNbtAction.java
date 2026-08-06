@@ -8,17 +8,16 @@ import io.neris.NGui.core.services.nbtTagger.NBTTagger;
 import lombok.Getter;
 import lombok.Setter;
 import net.kyori.adventure.text.Component;
-import org.bukkit.Material;
 import org.bukkit.entity.HumanEntity;
+import org.bukkit.event.Event;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
-import java.lang.classfile.Opcode;
 import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static io.neris.NGui.core.utils.itemStack.ItemStackUtils.isItemStackEmpty;
 import static io.neris.NGui.core.utils.itemStack.ItemStackUtils.parseToOptional;
 
 public class MsgPlayerNbtAction implements NbtAction {
@@ -29,7 +28,6 @@ public class MsgPlayerNbtAction implements NbtAction {
 
 
     public MsgPlayerNbtAction(NBTTagger nbtTagger){
-
         this.nbtTagger = nbtTagger;
     }
 
@@ -49,22 +47,35 @@ public class MsgPlayerNbtAction implements NbtAction {
         return "msg:" + message + ",true";
     }
 
-    @Override
-    public void execute(EventContext clickContext) {
-        HumanEntity entity = clickContext.getWhoClicked();
 
-        Optional<ItemStack> optItemStack = extractItemStack(clickContext);
+    @Override
+    public void execute(EventContext context) {
+        if(!isCorrectEvent(context.event)){
+            return;
+        }
+
+        HumanEntity entity = context.whoClicked;
+
+        Optional<ItemStack> optItemStack = extractItemStack(context);
         if(entity == null || optItemStack.isEmpty()){
             return;
         }
 
         ItemStack itemStack = optItemStack.get();
         String value = nbtTagger.getValueStringNBT(itemStack ,key());
+        if(value == null){
+            return;
+        }
+
         String message = extractMessage(value);
         Component componentMessage = Component.text(message);
 
         entity.sendMessage(componentMessage);
 
+    }
+
+    private boolean isCorrectEvent(Event event){
+        return event instanceof PlayerInteractEvent;
     }
 
     private Optional<ItemStack> extractItemStack(EventContext context){
@@ -73,7 +84,8 @@ public class MsgPlayerNbtAction implements NbtAction {
             return parseToOptional(itemStack);
         }
 
-        return Optional.empty();
+        ItemStack itemStack = context.items.getFirst();
+        return Optional.ofNullable(itemStack);
     }
 
     private String extractMessage(@NotNull String value){

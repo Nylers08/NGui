@@ -17,12 +17,9 @@ import org.jetbrains.annotations.Nullable;
 public class GuiElementClickListener implements Listener {
 
     private final GuiElementBindingSystem elementRegistry;
-    private final NbtActionExecutor nbtActionExecutor;
 
-    public GuiElementClickListener(@NotNull GuiElementBindingSystem elementRegistry,
-                                   @NotNull NbtActionExecutor nbtActionExecutor) {
+    public GuiElementClickListener(@NotNull GuiElementBindingSystem elementRegistry) {
         this.elementRegistry = elementRegistry;
-        this.nbtActionExecutor = nbtActionExecutor;
     }
 
     @EventHandler
@@ -63,14 +60,5 @@ public class GuiElementClickListener implements Listener {
         return elementRegistry.getGuiElement(inventory, newHotbarSlot);
     }
 
-
-    @EventHandler
-    public void nbtActionExecute(InventoryClickEvent event){
-        EventContext clickContext = new EventContext(event);
-        for (ItemStack itemStack : clickContext.getItems()){
-            MainItemEventContext mainItemEventContext = new MainItemEventContext(clickContext, itemStack);
-            nbtActionExecutor.execute(mainItemEventContext, itemStack);
-        }
-    }
 
 }

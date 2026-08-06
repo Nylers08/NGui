@@ -8,7 +8,7 @@ public class CancelPutAction implements GUIElementAction {
 
     @Override
     public void execute(EventContext clickContext) {
-        if(clickContext.getEvent() instanceof Cancellable cancellable){
+        if(clickContext.event instanceof Cancellable cancellable){
             cancellable.setCancelled(true);
         }
     }

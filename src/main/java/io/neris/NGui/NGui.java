@@ -2,6 +2,7 @@ package io.neris.NGui;
 
 import io.neris.NGui.core.command.MyCommand;
 import io.neris.NGui.core.listeners.guiElement.GuiElementClickListener;
+import io.neris.NGui.core.listeners.guiElement.ItemEventNbtActionListener;
 import io.neris.NGui.core.services.ServiceController;
 import lombok.Getter;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -17,10 +18,13 @@ public final class NGui extends JavaPlugin {
         serviceController = new ServiceController(this);
 
         this.getServer().getPluginManager().registerEvents(
-                new GuiElementClickListener(
-                        serviceController.getElementRegistry(),
-                        serviceController.getNbtActionExecutor()),
+                new GuiElementClickListener(serviceController.getElementRegistry()),
                 this);
+
+        this.getServer().getPluginManager().registerEvents(
+                new ItemEventNbtActionListener(serviceController.getNbtActionExecutor()),
+                this
+        );
 
         this.getCommand("menu").setExecutor(new MyCommand(serviceController));
     }

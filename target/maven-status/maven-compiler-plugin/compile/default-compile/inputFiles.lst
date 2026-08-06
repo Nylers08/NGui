@@ -1,5 +1,7 @@
 F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\command\MyCommand.java
+F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\command\TestFactoryContext.java
 F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\command\TestGuiElementFactory.java
+F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\command\TestInventoryRegistry.java
 F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\element\controller\actions\base\CancelPutAction.java
 F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\element\controller\actions\base\HelloAction.java
 F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\element\controller\actions\GUIElementAction.java
@@ -16,6 +18,7 @@ F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\element\element\B
 F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\element\element\GuiElement.java
 F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\element\element\NbtGuiElement.java
 F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\element\EventContext.java
+F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\element\EventContextBuilder.java
 F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\element\factory\GuiElementFactory.java
 F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\element\MainItemEventContext.java
 F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\element\services\installers\BaseGuiElementInstaller.java
@@ -30,6 +33,7 @@ F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\element\services\
 F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\element\services\slotBinding\GuiElementSlotIndex.java
 F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\menu\Menu.java
 F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\listeners\guiElement\GuiElementClickListener.java
+F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\listeners\guiElement\ItemEventNbtActionListener.java
 F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\services\nbtTagger\GuiElementTagger.java
 F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\services\nbtTagger\NBTKeys.java
 F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\services\nbtTagger\NBTTagger.java

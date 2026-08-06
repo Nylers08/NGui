@@ -7,6 +7,8 @@ io\neris\NGui\core\gui\element\controller\actions\nbt\CancelPutNbtAction.class
 io\neris\NGui\core\gui\element\element\BaseGuiElement.class
 io\neris\NGui\core\utils\itemStack\ItemStackUtils.class
 io\neris\NGui\core\gui\element\controller\actions\GUIElementAction.class
+io\neris\NGui\core\command\TestInventoryRegistry.class
+io\neris\NGui\core\gui\element\EventContextBuilder.class
 io\neris\NGui\core\services\nbtTagger\GuiElementTagger.class
 io\neris\NGui\core\services\nbtTagger\NBTKeys.class
 io\neris\NGui\core\gui\element\controller\actions\base\CancelPutAction.class
@@ -25,6 +27,7 @@ io\neris\NGui\core\services\ServiceController.class
 io\neris\NGui\core\gui\element\services\nbtAction\NbtActionRegistry.class
 io\neris\NGui\core\gui\element\controller\renderers\GUIElementRenderer.class
 io\neris\NGui\core\gui\element\services\slotBinding\GuiElementInventoryIndex.class
+io\neris\NGui\core\command\TestFactoryContext.class
 io\neris\NGui\core\gui\element\services\slotBinding\GuiElementSlotIndex.class
 io\neris\NGui\core\utils\event\ItemStackEventUtils.class
 io\neris\NGui\core\gui\element\factory\GuiElementFactory.class
@@ -38,5 +41,6 @@ io\neris\NGui\core\gui\element\controller\actions\base\HelloAction.class
 io\neris\NGui\core\gui\element\controller\renderers\GuiElementRenderContext.class
 io\neris\NGui\core\services\nbtTagger\NBTTagger.class
 io\neris\NGui\core\gui\element\controller\renderers\AirRender.class
+io\neris\NGui\core\listeners\guiElement\ItemEventNbtActionListener.class
 io\neris\NGui\core\gui\element\EventContext.class
 io\neris\NGui\core\gui\element\services\slotBinding\GuiElementBindingSystem.class
