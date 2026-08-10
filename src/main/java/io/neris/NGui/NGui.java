@@ -1,7 +1,6 @@
 package io.neris.NGui;
 
 import io.neris.NGui.core.command.MyCommand;
-import io.neris.NGui.core.listeners.guiElement.GuiElementClickListener;
 import io.neris.NGui.core.listeners.guiElement.ItemEventNbtActionListener;
 import io.neris.NGui.core.services.ServiceController;
 import lombok.Getter;
@@ -16,10 +15,6 @@ public final class NGui extends JavaPlugin {
         // Plugin startup logic
 
         serviceController = new ServiceController(this);
-
-        this.getServer().getPluginManager().registerEvents(
-                new GuiElementClickListener(serviceController.getElementRegistry()),
-                this);
 
         this.getServer().getPluginManager().registerEvents(
                 new ItemEventNbtActionListener(serviceController.getNbtActionExecutor()),

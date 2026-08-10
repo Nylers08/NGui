@@ -2,9 +2,7 @@ package io.neris.NGui.core.gui.element;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.bukkit.event.Event;
 import org.bukkit.inventory.ItemStack;
-import org.jetbrains.annotations.NotNull;
 
 public class MainItemEventContext extends EventContext {
 

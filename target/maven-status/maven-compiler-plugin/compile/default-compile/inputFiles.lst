@@ -23,16 +23,9 @@ F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\element\factory\G
 F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\element\MainItemEventContext.java
 F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\element\services\installers\BaseGuiElementInstaller.java
 F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\element\services\installers\GuiElementInstaller.java
-F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\element\services\installers\SlotBindingGuiElementInstaller.java
 F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\element\services\nbtAction\NbtActionExecutor.java
 F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\element\services\nbtAction\NbtActionRegistry.java
-F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\element\services\slotBinding\GuiElementBindingSystem.java
-F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\element\services\slotBinding\GuiElementInventoryIndex.java
-F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\element\services\slotBinding\GuiElementPosition.java
-F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\element\services\slotBinding\GuiElementRegistry.java
-F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\element\services\slotBinding\GuiElementSlotIndex.java
 F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\menu\Menu.java
-F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\listeners\guiElement\GuiElementClickListener.java
 F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\listeners\guiElement\ItemEventNbtActionListener.java
 F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\services\nbtTagger\GuiElementTagger.java
 F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\services\nbtTagger\NBTKeys.java

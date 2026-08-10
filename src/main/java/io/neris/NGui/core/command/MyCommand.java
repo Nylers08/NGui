@@ -44,12 +44,8 @@ public class MyCommand implements CommandExecutor {
         GuiElementFactory<TestFactoryContext> elementFactory = new TestGuiElementFactory(serviceController.getNbtTagger());
 
         if(args.length == 0){
-            Inventory invWithOwner = Bukkit.createInventory(player, 27);
-            Inventory invEmpty = Bukkit.createInventory(null, 27);
-            inventoryRegistry.register(invWithOwner);
-            inventoryRegistry.register(invEmpty);
-
-            player.openInventory(invEmpty);
+            Inventory playerInv = player.getInventory();
+            inventoryRegistry.register(playerInv);
             return true;
         } else if(args.length == 1 && args[0].equalsIgnoreCase("gc")){
             System.gc();
