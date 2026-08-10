@@ -1,4 +1,4 @@
-package io.neris.NGui.core.gui.menu.services;
+package io.neris.NGui.core.utils.itemStack;
 
 import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
@@ -13,20 +13,24 @@ public class InventoryBuilder {
     private Component title = type.defaultTitle();
     private InventoryHolder holder = null;
 
-    public void type(InventoryType type){
+    public InventoryBuilder type(InventoryType type){
         this.type = type;
+        return this;
     }
 
-    public void size(int size){
+    public InventoryBuilder size(int size){
         this.size = size;
+        return this;
     }
 
-    public void title(Component title){
+    public InventoryBuilder title(Component title){
         this.title = title;
+        return this;
     }
 
-    public void holder(InventoryHolder holder){
+    public InventoryBuilder holder(InventoryHolder holder){
         this.holder = holder;
+        return this;
     }
 
 

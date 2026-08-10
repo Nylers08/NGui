@@ -1,7 +1,8 @@
 package io.neris.NGui;
 
 import io.neris.NGui.core.command.MyCommand;
-import io.neris.NGui.core.listeners.guiElement.ItemEventNbtActionListener;
+import io.neris.NGui.core.listeners.gui.guiElement.ItemEventNbtActionListener;
+import io.neris.NGui.core.listeners.gui.menu.MenuClosedListener;
 import io.neris.NGui.core.services.ServiceController;
 import lombok.Getter;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -18,6 +19,11 @@ public final class NGui extends JavaPlugin {
 
         this.getServer().getPluginManager().registerEvents(
                 new ItemEventNbtActionListener(serviceController.getNbtActionExecutor()),
+                this
+        );
+
+        this.getServer().getPluginManager().registerEvents(
+                new MenuClosedListener(serviceController.getOpenedMenuRegistry()),
                 this
         );
 

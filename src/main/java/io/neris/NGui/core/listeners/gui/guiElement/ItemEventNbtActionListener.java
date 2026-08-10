@@ -1,4 +1,4 @@
-package io.neris.NGui.core.listeners.guiElement;
+package io.neris.NGui.core.listeners.gui.guiElement;
 
 import io.neris.NGui.core.gui.element.EventContext;
 import io.neris.NGui.core.gui.element.EventContextBuilder;
@@ -6,7 +6,6 @@ import io.neris.NGui.core.gui.element.services.nbtAction.NbtActionExecutor;
 import io.papermc.paper.event.player.PlayerSwapWithEquipmentSlotEvent;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.Action;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.*;
 

@@ -11,9 +11,11 @@ public interface Menu {
 
     ItemStack getItem(int slot);
     Inventory getInventory();
+    Component getTitle();
 
     void changeName(Component name);
     void changeSize(int size);
+
     void reopen();
     void clear();
 }

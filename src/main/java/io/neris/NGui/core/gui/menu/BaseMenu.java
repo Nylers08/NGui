@@ -37,6 +37,11 @@ public class BaseMenu implements Menu{
         return inventory;
     }
 
+    @Override
+    public Component getTitle() {
+        return title;
+    }
+
 
     @Override
     public void changeName(Component title) {

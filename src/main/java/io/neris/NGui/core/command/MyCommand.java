@@ -2,32 +2,32 @@ package io.neris.NGui.core.command;
 
 import io.neris.NGui.core.gui.element.factory.GuiElementFactory;
 import io.neris.NGui.core.gui.element.element.GuiElement;
+import io.neris.NGui.core.gui.menu.BaseMenu;
+import io.neris.NGui.core.gui.menu.Menu;
+import io.neris.NGui.core.gui.menu.services.MenuOpener;
 import io.neris.NGui.core.services.ServiceController;
+import io.neris.NGui.core.utils.itemStack.InventoryBuilder;
+import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Set;
 import java.util.UUID;
 
 public class MyCommand implements CommandExecutor {
 
     private final ServiceController serviceController;
 
-    private final TestInventoryRegistry inventoryRegistry;
-    private final Inventory testInventory;
-
-
     public MyCommand(ServiceController serviceController) {
         this.serviceController = serviceController;
-        this.inventoryRegistry = new TestInventoryRegistry(serviceController.getPlugin());
-        this.testInventory = Bukkit.createInventory(null, 27);
-        inventoryRegistry.register(testInventory);
     }
 
     @Override
@@ -37,32 +37,27 @@ public class MyCommand implements CommandExecutor {
         }
 
         Player player = (Player) sender;
-        TestFactoryContext factoryContext1 = new TestFactoryContext(player.getUniqueId(), Material.GOLDEN_APPLE, 1);
-        TestFactoryContext factoryContext2 = new TestFactoryContext(player.getUniqueId(), Material.CHAINMAIL_HELMET, 1);
-        TestFactoryContext factoryContext3 = new TestFactoryContext(player.getUniqueId(), Material.DIAMOND_PICKAXE, 1);
-        TestFactoryContext factoryContext4 = new TestFactoryContext(player.getUniqueId(), Material.DIAMOND, 64);
-        GuiElementFactory<TestFactoryContext> elementFactory = new TestGuiElementFactory(serviceController.getNbtTagger());
+
+        TestFactoryContext context = new TestFactoryContext(player.getUniqueId(), Material.DIAMOND, 6);
+        TestGuiElementFactory factory = new TestGuiElementFactory(serviceController.getNbtTagger());
+        GuiElement element = factory.create(context);
+
+        MenuOpener<HumanEntity> menuOpener = serviceController.getPlayerMenuOpener();
+        Component title = Component.text("StrelikLox");
+        Inventory inv = new InventoryBuilder()
+                .size(27)
+                .title(title)
+                .build();
+
+        Menu menu = new BaseMenu(inv, title);
+        serviceController.getBaseElementInstaller().install(menu, element, 0,8,18,26);
 
         if(args.length == 0){
-            Inventory playerInv = player.getInventory();
-            inventoryRegistry.register(playerInv);
+            menuOpener.open(player, menu);
             return true;
-        } else if(args.length == 1 && args[0].equalsIgnoreCase("gc")){
-            System.gc();
-            player.sendMessage("Garbage collector called");
-            return true;
-        } else if(args.length == 1 && args[0].equalsIgnoreCase("size")){
-            player.sendMessage("Size: " + inventoryRegistry.size());
-            return true;
-        } else if(args.length == 1 && args[0].equalsIgnoreCase("item")){
-            GuiElement element1 = elementFactory.create(factoryContext1);
-            GuiElement element2 = elementFactory.create(factoryContext2);
-            GuiElement element3 = elementFactory.create(factoryContext3);
-            GuiElement element4 = elementFactory.create(factoryContext4);
-            serviceController.getBaseElementInstaller().install(player.getInventory(), element1, 0);
-            serviceController.getBaseElementInstaller().install(player.getInventory(), element2, 1);
-            serviceController.getBaseElementInstaller().install(player.getInventory(), element3, 2);
-            serviceController.getBaseElementInstaller().install(player.getInventory(), element4, 3);
+        } else if (args[0].equalsIgnoreCase("size")) {
+            int size = serviceController.getOpenedMenuRegistry().countViewers();
+            player.sendMessage("Size opened menu: " + size);
             return true;
         }
 

@@ -50,10 +50,6 @@ public class MsgPlayerNbtAction implements NbtAction {
 
     @Override
     public void execute(EventContext context) {
-        if(!isCorrectEvent(context.event)){
-            return;
-        }
-
         HumanEntity entity = context.whoClicked;
 
         Optional<ItemStack> optItemStack = extractItemStack(context);
@@ -72,10 +68,6 @@ public class MsgPlayerNbtAction implements NbtAction {
 
         entity.sendMessage(componentMessage);
 
-    }
-
-    private boolean isCorrectEvent(Event event){
-        return event instanceof PlayerInteractEvent;
     }
 
     private Optional<ItemStack> extractItemStack(EventContext context){
