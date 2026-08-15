@@ -8,6 +8,7 @@ io\neris\NGui\core\services\nbtTagger\GuiElementTagger.class
 io\neris\NGui\core\gui\element\controller\actions\base\CancelPutAction.class
 io\neris\NGui\core\utils\InventoryUtils.class
 io\neris\NGui\core\gui\menu\services\MenuOpener.class
+io\neris\NGui\core\gui\menu\services\MenuFactory.class
 io\neris\NGui\core\utils\gui\action\NBTActionUtils.class
 io\neris\NGui\core\gui\element\controller\actions\nbt\MsgPlayerNbtAction.class
 io\neris\NGui\NGui.class

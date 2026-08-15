@@ -28,6 +28,7 @@ F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\element\services\
 F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\menu\BaseMenu.java
 F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\menu\Menu.java
 F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\menu\services\MenuCloser.java
+F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\menu\services\MenuFactory.java
 F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\menu\services\MenuOpener.java
 F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\menu\services\OpenedMenuRegistry.java
 F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\menu\services\PlayerMenuCloser.java
