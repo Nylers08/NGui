@@ -2,7 +2,6 @@ package io.neris.NGui.core.gui.menu.services;
 
 import io.neris.NGui.core.gui.menu.Menu;
 import org.bukkit.Bukkit;
-import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
 
 import java.util.Set;
