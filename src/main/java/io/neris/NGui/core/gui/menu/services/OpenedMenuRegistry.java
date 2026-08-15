@@ -19,6 +19,10 @@ public class OpenedMenuRegistry {
     }
 
     public void unregister(Menu menu){
+        if(!openedMenu.containsKey(menu)){
+            return;
+        }
+
         Set<UUID> playersIds = openedMenu.get(menu);
         for (UUID id : playersIds){
             viewers.remove(id);
@@ -28,6 +32,10 @@ public class OpenedMenuRegistry {
     }
 
     public void unregister(UUID playerId){
+        if(!viewers.containsKey(playerId)){
+            return;
+        }
+
         Menu menu = viewers.get(playerId);
         viewers.remove(playerId);
 

@@ -33,6 +33,16 @@ public class MyCommand implements CommandExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String @NotNull [] args) {
         if(!(sender instanceof Player)){
+            if(args.length != 0){
+                if(args[0].equalsIgnoreCase("size")){
+                    int size = serviceController.getOpenedMenuRegistry().countViewers();
+                    sender.sendMessage("Size opened menu: " + size);
+                    return true;
+                } else if (args[0].equalsIgnoreCase("closeAll")) {
+                    serviceController.getPlayerMenuCloser().closeAll();
+                    return true;
+                }
+            }
             return false;
         }
 
@@ -58,6 +68,9 @@ public class MyCommand implements CommandExecutor {
         } else if (args[0].equalsIgnoreCase("size")) {
             int size = serviceController.getOpenedMenuRegistry().countViewers();
             player.sendMessage("Size opened menu: " + size);
+            return true;
+        } else if(args[0].equalsIgnoreCase("closeAll")){
+            serviceController.getPlayerMenuCloser().closeAll();
             return true;
         }
 

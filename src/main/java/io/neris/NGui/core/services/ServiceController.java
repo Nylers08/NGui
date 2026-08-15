@@ -7,6 +7,7 @@ import io.neris.NGui.core.gui.element.services.nbtAction.NbtActionExecutor;
 import io.neris.NGui.core.gui.element.services.nbtAction.NbtActionRegistry;
 import io.neris.NGui.core.gui.menu.services.MenuOpener;
 import io.neris.NGui.core.gui.menu.services.OpenedMenuRegistry;
+import io.neris.NGui.core.gui.menu.services.PlayerMenuCloser;
 import io.neris.NGui.core.gui.menu.services.PlayerMenuOpener;
 import io.neris.NGui.core.services.nbtTagger.GuiElementTagger;
 import io.neris.NGui.core.services.nbtTagger.NBTTagger;
@@ -29,6 +30,7 @@ public class ServiceController {
 
     @Getter private final OpenedMenuRegistry openedMenuRegistry;
     @Getter private final PlayerMenuOpener playerMenuOpener;
+    @Getter private final PlayerMenuCloser playerMenuCloser;
 
     public ServiceController(JavaPlugin plugin) {
         this.plugin = plugin;
@@ -43,6 +45,7 @@ public class ServiceController {
 
         this.openedMenuRegistry = new OpenedMenuRegistry();
         this.playerMenuOpener = new PlayerMenuOpener(openedMenuRegistry);
+        this.playerMenuCloser = new PlayerMenuCloser(openedMenuRegistry);
 
         initNbtAction();
         NBTActionUtils.init(nbtTagger);
