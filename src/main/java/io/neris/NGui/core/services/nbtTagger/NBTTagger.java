@@ -3,13 +3,15 @@ package io.neris.NGui.core.services.nbtTagger;
 import io.neris.NGui.core.utils.nbt.NBTData;
 import io.neris.NGui.core.utils.nbt.NBTUtils;
 import lombok.Getter;
+import lombok.NonNull;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.List;
 import java.util.Set;
+
+import static io.neris.NGui.core.utils.nbt.NBTUtils.addCustomStringNBT;
 
 public class NBTTagger {
 
@@ -21,7 +23,12 @@ public class NBTTagger {
 
     public void addStringNBT(@NotNull ItemStack itemStack, @NotNull String key, String value){
         NBTData nbtData = new NBTData(plugin, key, value);
-        io.neris.NGui.core.utils.nbt.NBTUtils.addCustomStringNBT(itemStack, nbtData);
+        addCustomStringNBT(itemStack, nbtData);
+    }
+
+    public void removeStringNBT(@NonNull ItemStack itemStack, @NonNull String key){
+        NBTData nbtData = new NBTData(plugin, key, "");
+        NBTUtils.removeStringNBT(itemStack, nbtData);
     }
 
     public String getValueStringNBT(@NotNull ItemStack itemStack, @NotNull String key){

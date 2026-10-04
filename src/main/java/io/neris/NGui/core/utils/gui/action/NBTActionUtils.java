@@ -1,15 +1,15 @@
 package io.neris.NGui.core.utils.gui.action;
 
-import io.neris.NGui.core.gui.element.controller.actions.NbtActionKeys;
 import io.neris.NGui.core.services.nbtTagger.NBTTagger;
 import io.neris.NGui.core.utils.nbt.NBTUtils;
+import lombok.Getter;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.List;
 
 public class NBTActionUtils {
 
-    private static NBTTagger tagger;
+    @Getter private static NBTTagger tagger;
 
 
     public static void init(NBTTagger nbtTagger){
@@ -25,7 +25,7 @@ public class NBTActionUtils {
         return NBTUtils.hasKey(itemStack, actionKey);
     }
 
-    private static boolean isActionTrue(ItemStack itemStack, String actionKey){
+    public static boolean isActionTrue(ItemStack itemStack, String actionKey){
         String value = tagger.getValueStringNBT(itemStack, actionKey);
         if(value.isEmpty()){
             return false;
@@ -33,5 +33,20 @@ public class NBTActionUtils {
 
         String[] values = value.split(",");
         return List.of(values).contains("true");
+    }
+
+
+    public static void setBool(ItemStack itemStack, String actionKey, boolean bool){
+        String value = tagger.getValueStringNBT(itemStack, actionKey);
+        String newValue = changeStringBool(value, bool);
+        tagger.addStringNBT(itemStack, actionKey, newValue);
+    }
+
+    private static String changeStringBool(String st, boolean bool){
+        if(bool){
+            return st.replace(",false", ",true");
+        } else {
+            return st.replace(",true", ",false");
+        }
     }
 }

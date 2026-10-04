@@ -1,19 +1,16 @@
 package io.neris.NGui.core.services;
 
-import io.neris.NGui.core.gui.element.controller.actions.nbt.CancelPutNbtAction;
-import io.neris.NGui.core.gui.element.controller.actions.nbt.MsgPlayerNbtAction;
-import io.neris.NGui.core.gui.element.services.installers.BaseGuiElementInstaller;
-import io.neris.NGui.core.gui.element.services.nbtAction.NbtActionExecutor;
-import io.neris.NGui.core.gui.element.services.nbtAction.NbtActionRegistry;
-import io.neris.NGui.core.gui.menu.services.MenuOpener;
+import io.neris.NGui.core.gui.button.controller.actions.CancelPutAction;
+import io.neris.NGui.core.gui.button.controller.actions.MsgPlayerAction;
+import io.neris.NGui.core.gui.button.services.installers.BaseButtonInstaller;
+import io.neris.NGui.core.gui.button.services.nbtAction.NbtActionExecutor;
+import io.neris.NGui.core.gui.button.services.nbtAction.NbtActionRegistry;
 import io.neris.NGui.core.gui.menu.services.OpenedMenuRegistry;
 import io.neris.NGui.core.gui.menu.services.PlayerMenuCloser;
 import io.neris.NGui.core.gui.menu.services.PlayerMenuOpener;
-import io.neris.NGui.core.services.nbtTagger.GuiElementTagger;
 import io.neris.NGui.core.services.nbtTagger.NBTTagger;
 import io.neris.NGui.core.utils.gui.action.NBTActionUtils;
 import lombok.Getter;
-import org.bukkit.entity.HumanEntity;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class ServiceController {
@@ -21,9 +18,8 @@ public class ServiceController {
     @Getter private final JavaPlugin plugin;
 
     @Getter private final NBTTagger nbtTagger;
-    @Getter private final GuiElementTagger guiElementTagger;
 
-    @Getter private final BaseGuiElementInstaller baseElementInstaller;
+    @Getter private final BaseButtonInstaller baseElementInstaller;
 
     @Getter private final NbtActionRegistry nbtActionRegistry;
     @Getter private final NbtActionExecutor nbtActionExecutor;
@@ -36,9 +32,8 @@ public class ServiceController {
         this.plugin = plugin;
 
         this.nbtTagger = new NBTTagger(plugin);
-        this.guiElementTagger = new GuiElementTagger(nbtTagger);
 
-        this.baseElementInstaller = new BaseGuiElementInstaller();
+        this.baseElementInstaller = new BaseButtonInstaller();
 
         this.nbtActionRegistry = new NbtActionRegistry();
         this.nbtActionExecutor = new NbtActionExecutor(nbtActionRegistry);
@@ -53,6 +48,6 @@ public class ServiceController {
 
 
     private void initNbtAction(){
-        nbtActionRegistry.register(new CancelPutNbtAction(), new MsgPlayerNbtAction(nbtTagger));
+        nbtActionRegistry.register(new CancelPutAction(), new MsgPlayerAction(nbtTagger));
     }
 }

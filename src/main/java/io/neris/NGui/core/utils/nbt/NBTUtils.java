@@ -1,6 +1,8 @@
 package io.neris.NGui.core.utils.nbt;
 
+import lombok.NonNull;
 import org.bukkit.NamespacedKey;
+import org.bukkit.entity.Item;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataContainer;
@@ -21,6 +23,17 @@ public class NBTUtils {
 
         NamespacedKey namespacedKey = buildNamespacedKeyFrom(nbtData);
         dataContainer.set(namespacedKey, PersistentDataType.STRING, nbtData.getValue());
+
+        itemStack.setItemMeta(meta);
+    }
+
+    public static void removeStringNBT(@NonNull ItemStack itemStack, @NonNull NBTData nbtData){
+        ItemMeta meta = itemStack.getItemMeta();
+        if(meta == null) return;
+
+        PersistentDataContainer dataContainer = meta.getPersistentDataContainer();
+        NamespacedKey key = buildNamespacedKeyFrom(nbtData);
+        dataContainer.remove(key);
 
         itemStack.setItemMeta(meta);
     }

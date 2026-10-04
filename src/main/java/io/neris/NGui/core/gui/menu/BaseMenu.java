@@ -1,6 +1,7 @@
 package io.neris.NGui.core.gui.menu;
 
 import io.neris.NGui.core.utils.InventoryUtils;
+import io.neris.NGui.core.utils.itemStack.InventoryBuilder;
 import net.kyori.adventure.text.Component;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -9,6 +10,13 @@ public class BaseMenu implements Menu{
 
     protected Inventory inventory;
     protected Component title;
+
+
+    public BaseMenu(int size, Component title){
+        this.inventory = new InventoryBuilder()
+                .size(size).title(title).build();
+        this.title = title;
+    }
 
     public BaseMenu(Inventory inventory, Component title){
         this.inventory = inventory;

@@ -1,7 +1,7 @@
 package io.neris.NGui;
 
 import io.neris.NGui.core.command.MyCommand;
-import io.neris.NGui.core.listeners.gui.guiElement.ItemEventNbtActionListener;
+import io.neris.NGui.core.listeners.gui.button.ItemInteractListener;
 import io.neris.NGui.core.listeners.gui.menu.MenuClosedListener;
 import io.neris.NGui.core.services.ServiceController;
 import lombok.Getter;
@@ -17,10 +17,7 @@ public final class NGui extends JavaPlugin {
 
         serviceController = new ServiceController(this);
 
-        this.getServer().getPluginManager().registerEvents(
-                new ItemEventNbtActionListener(serviceController.getNbtActionExecutor()),
-                this
-        );
+        this.getServer().getPluginManager().registerEvents(new ItemInteractListener(serviceController.getNbtActionExecutor()), this);
 
         this.getServer().getPluginManager().registerEvents(
                 new MenuClosedListener(serviceController.getOpenedMenuRegistry()),
@@ -33,6 +30,6 @@ public final class NGui extends JavaPlugin {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
-        serviceController.getPlayerMenuCloser().closeAll();
+
     }
 }
