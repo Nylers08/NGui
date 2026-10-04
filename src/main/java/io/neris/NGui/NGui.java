@@ -1,6 +1,6 @@
 package io.neris.NGui;
 
-import io.neris.NGui.core.command.MyCommand;
+import io.neris.NGui.core.command.GuiCommand;
 import io.neris.NGui.core.listeners.gui.button.ItemInteractListener;
 import io.neris.NGui.core.listeners.gui.menu.MenuClosedListener;
 import io.neris.NGui.core.services.ServiceController;
@@ -24,7 +24,7 @@ public final class NGui extends JavaPlugin {
                 this
         );
 
-        this.getCommand("menu").setExecutor(new MyCommand(serviceController));
+        this.getCommand("menu").setExecutor(new GuiCommand(serviceController));
     }
 
     @Override

@@ -1,5 +1,6 @@
-package io.neris.NGui.core.gui.button.button;
+package io.neris.NGui.core.example;
 
+import io.neris.NGui.core.gui.button.button.StaticNbtButton;
 import io.neris.NGui.core.gui.button.controller.ButtonController;
 import io.neris.NGui.core.gui.button.controller.actions.ButtonAction;
 import io.neris.NGui.core.gui.button.controller.actions.CancelPutAction;
