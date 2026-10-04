@@ -9,3 +9,19 @@ commands:
   menu:
     description: Команда под меню
     usage: /menu
+
+permissions:
+  ngui.help:
+    default: op
+
+  ngui.test:
+    default: op
+
+  ngui.closeall:
+    default: op
+
+  ngui.closefor:
+    default: op
+
+  ngui.viewplayermenu:
+    default: op

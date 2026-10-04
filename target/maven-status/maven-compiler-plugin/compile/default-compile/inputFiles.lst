@@ -1,10 +1,14 @@
-F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\command\MyCommand.java
+F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\command\AllMenuCloserSub.java
+F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\command\CloseMenuForPlayerSub.java
+F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\command\GuiCommand.java
 F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\command\SubCommand.java
+F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\command\TestMenuOpenSub.java
+F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\example\TestButton.java
+F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\example\TestMenuFactory.java
 F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\button\button\AbstractButton.java
 F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\button\button\Button.java
 F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\button\button\NbtButton.java
 F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\button\button\StaticNbtButton.java
-F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\button\button\TestButton.java
 F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\button\ButtonUtils.java
 F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\button\ClickContextBuilder.java
 F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\button\ClickEventContext.java
@@ -31,7 +35,6 @@ F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\menu\services\Men
 F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\menu\services\OpenedMenuRegistry.java
 F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\menu\services\PlayerMenuCloser.java
 F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\menu\services\PlayerMenuOpener.java
-F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\gui\menu\TestMenuFactory.java
 F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\listeners\gui\button\ItemInteractListener.java
 F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\listeners\gui\menu\MenuClosedListener.java
 F:\Projects\intellij\NGui\src\main\java\io\neris\NGui\core\services\nbtTagger\NBTTagger.java
