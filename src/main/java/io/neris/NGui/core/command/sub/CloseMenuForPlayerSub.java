@@ -1,5 +1,6 @@
-package io.neris.NGui.core.command;
+package io.neris.NGui.core.command.sub;
 
+import io.neris.NGui.core.command.SubCommand;
 import io.neris.NGui.core.gui.menu.services.MenuCloser;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
@@ -7,7 +8,7 @@ import org.bukkit.entity.Player;
 
 import java.util.UUID;
 
-public class CloseMenuForPlayerSub implements SubCommand{
+public class CloseMenuForPlayerSub implements SubCommand {
 
     private final MenuCloser<UUID> menuCloser;
 

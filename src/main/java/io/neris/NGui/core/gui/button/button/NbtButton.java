@@ -20,16 +20,16 @@ public class NbtButton extends AbstractButton {
     @Override
     public void render(ButtonRenderContext context){
         itemStack = controller.render(context);
-        addNbtKeyValueToItemStack();
+        updateNbts();
     }
 
-
-    private void addNbtKeyValueToItemStack(){
+    public void updateNbts(){
         List<ButtonAction> buttonActions = getNbtActions();
         for (ButtonAction buttonAction : buttonActions){
             nbtTagger.addStringNBT(itemStack, buttonAction.key(), buttonAction.value());
         }
     }
+
 
     private List<ButtonAction> getNbtActions(){
         List<ButtonAction> buttonActions = new ArrayList<>();

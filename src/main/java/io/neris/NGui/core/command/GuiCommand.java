@@ -1,6 +1,9 @@
 package io.neris.NGui.core.command;
 
-import io.neris.NGui.core.services.ServiceController;
+import io.neris.NGui.core.command.sub.AllMenuCloserSub;
+import io.neris.NGui.core.command.sub.CloseMenuForPlayerSub;
+import io.neris.NGui.core.command.sub.TestMenuOpenSub;
+import io.neris.NGui.core.services.MenuServiceController;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -12,12 +15,12 @@ import java.util.Set;
 
 public class GuiCommand implements CommandExecutor {
 
-    private final ServiceController service;
+    private final MenuServiceController service;
     private final Map<String, SubCommand> subCommandMap = new HashMap<>();
     private String helpMessage;
 
 
-    public GuiCommand(ServiceController service) {
+    public GuiCommand(MenuServiceController service) {
         this.service = service;
 
         addSubcommand(new AllMenuCloserSub(service.getPlayerMenuCloser()), "closeall");

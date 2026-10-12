@@ -13,7 +13,7 @@ import io.neris.NGui.core.utils.gui.action.NBTActionUtils;
 import lombok.Getter;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class ServiceController {
+public class MenuServiceController {
 
     @Getter private final JavaPlugin plugin;
 
@@ -28,7 +28,7 @@ public class ServiceController {
     @Getter private final PlayerMenuOpener playerMenuOpener;
     @Getter private final PlayerMenuCloser playerMenuCloser;
 
-    public ServiceController(JavaPlugin plugin) {
+    public MenuServiceController(JavaPlugin plugin) {
         this.plugin = plugin;
 
         this.nbtTagger = new NBTTagger(plugin);
@@ -48,6 +48,7 @@ public class ServiceController {
 
 
     private void initNbtAction(){
-        nbtActionRegistry.register(new CancelPutAction(), new MsgPlayerAction(nbtTagger));
+        nbtActionRegistry.register(new CancelPutAction(),
+                new MsgPlayerAction(nbtTagger));
     }
 }

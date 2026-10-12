@@ -36,6 +36,10 @@ public class ButtonController {
     }
 
 
+    public void addAction(ButtonAction action){
+        actionList.add(action);
+    }
+
     public void addActions(ButtonAction... actions){
         actionList.addAll(Arrays.asList(actions));
     }

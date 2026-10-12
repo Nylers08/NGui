@@ -1,5 +1,5 @@
 name: NGui
-version: '0.0.1'
+version: '0.0.2'
 
 main: io.neris.NGui.NGui
 api-version: '26.2'
@@ -21,7 +21,4 @@ permissions:
     default: op
 
   ngui.closefor:
-    default: op
-
-  ngui.viewplayermenu:
     default: op

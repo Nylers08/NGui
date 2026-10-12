@@ -1,10 +1,11 @@
-package io.neris.NGui.core.command;
+package io.neris.NGui.core.command.sub;
 
+import io.neris.NGui.core.command.SubCommand;
 import io.neris.NGui.core.gui.menu.services.PlayerMenuCloser;
 import lombok.Getter;
 import org.bukkit.command.CommandSender;
 
-public class AllMenuCloserSub implements SubCommand{
+public class AllMenuCloserSub implements SubCommand {
 
     @Getter private final PlayerMenuCloser menuCloser;
 

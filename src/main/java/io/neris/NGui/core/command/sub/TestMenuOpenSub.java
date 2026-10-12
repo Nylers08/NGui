@@ -1,16 +1,16 @@
-package io.neris.NGui.core.command;
+package io.neris.NGui.core.command.sub;
 
+import io.neris.NGui.core.command.SubCommand;
 import io.neris.NGui.core.example.TestMenuFactory;
 import io.neris.NGui.core.gui.menu.services.MenuFactory;
 import io.neris.NGui.core.gui.menu.services.MenuOpener;
 import lombok.Getter;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.HumanEntity;
-import org.bukkit.entity.Player;
 
 import java.util.UUID;
 
-public class TestMenuOpenSub implements SubCommand{
+public class TestMenuOpenSub implements SubCommand {
 
     @Getter private final MenuOpener<HumanEntity> menuOpener;
     @Getter private final MenuFactory<UUID> menuFactory;
