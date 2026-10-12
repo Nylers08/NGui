@@ -11,16 +11,18 @@ public class ToMenuFactoryAction implements ButtonAction {
 
     private final PlayerMenuOpener menuOpener;
     private final MenuFactory<ClickEventContext> menuFactory;
+    private final String menuName;
 
     public ToMenuFactoryAction(PlayerMenuOpener menuOpener, MenuFactory<ClickEventContext> menuFactory) {
         this.menuOpener = menuOpener;
         this.menuFactory = menuFactory;
+        this.menuName = menuFactory.getMenuName().toLowerCase();
         StaticMenuServiceController.getServiceController().getNbtActionRegistry().register(this);
     }
 
     @Override
     public String key() {
-        return GO_TO_MENU_FACTORY;
+        return GO_TO_MENU_FACTORY + "_" + menuName;
     }
 
     @Override

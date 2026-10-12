@@ -11,6 +11,11 @@ import org.bukkit.entity.Player;
 public class TestMenuFactoryWithClickContext implements MenuFactory<ClickEventContext> {
 
     @Override
+    public String getMenuName() {
+        return "TestMenuFactoryWithClickContext";
+    }
+
+    @Override
     public Menu create(ClickEventContext context) {
         Player player = (Player) context.whoClicked;
         Button testButton = new TestButton(player.getUniqueId());

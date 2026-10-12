@@ -11,16 +11,18 @@ public class ToMenuAction implements ButtonAction {
 
     private final PlayerMenuOpener menuOpener;
     private final Menu menu;
+    private final String menuName;
 
     public ToMenuAction(PlayerMenuOpener menuOpener, Menu menu) {
         this.menuOpener = menuOpener;
         this.menu = menu;
+        this.menuName = menu.getTitle().toString().toLowerCase();
         StaticMenuServiceController.getServiceController().getNbtActionRegistry().register(this);
     }
 
     @Override
     public String key() {
-        return GO_TO_MENU;
+        return GO_TO_MENU + "_" + menuName;
     }
 
     @Override

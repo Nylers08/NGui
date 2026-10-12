@@ -15,6 +15,11 @@ import java.util.UUID;
 public class TestMenuFactory implements MenuFactory<UUID> {
 
     @Override
+    public String getMenuName() {
+        return "TestMenuFactory";
+    }
+
+    @Override
     public Menu create(UUID context) {
         String  playerName = Bukkit.getPlayer(context).getName();
         TestButton testButton = new TestButton(context);
